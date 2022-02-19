@@ -16,6 +16,8 @@
     "postpublish": "pinst --enable"
   },
   "devDependencies": {
+    "commitlint": "^16.2.1",
+    "commitlint-config-gitmoji": "^2.2.5",
     "husky": ">=6",
     "lint-staged": ">=10",
     "pinst": "^2.1.6",
