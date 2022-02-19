@@ -1,5 +1,5 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "turborepo-typescript-fullstack",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -16,8 +16,10 @@
     "postpublish": "pinst --enable"
   },
   "devDependencies": {
+    "commitizen": "^4.2.4",
     "commitlint": "^16.2.1",
     "commitlint-config-gitmoji": "^2.2.5",
+    "cz-gitmoji": "^0.0.7",
     "husky": ">=6",
     "lint-staged": ">=10",
     "pinst": "^2.1.6",
