@@ -16,6 +16,7 @@
   "devDependencies": {
     "husky": ">=6",
     "lint-staged": ">=10",
+    "pinst": "^2.1.6",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
