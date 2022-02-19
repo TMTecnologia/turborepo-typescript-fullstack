@@ -1,6 +1,7 @@
 {
   "name": "turborepo-typescript-fullstack",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Turborepo boilerplate including TypeScript, ReactNative, Jest, ESLint and more",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -12,6 +13,7 @@
     "lint": "turbo run lint",
     "format": "turbo run lint:fix",
     "commit": "cz",
+    "changelog": "npx gitmoji-changelog",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
