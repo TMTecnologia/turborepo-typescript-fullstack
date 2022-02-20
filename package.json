@@ -24,6 +24,7 @@
     "commitlint-config-gitmoji": "^2.2.5",
     "cz-gitmoji": "^0.0.7",
     "husky": ">=6",
+    "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "pinst": "^2.1.6",
     "prettier": "^2.5.1",
