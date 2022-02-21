@@ -13,6 +13,7 @@ module.exports = {
       },
     },
   },
+  parser: "@typescript-eslint/parser",
   plugins: ["import", "eslint-plugin-import-helpers"],
   rules: {
     "@next/next/no-html-link-for-pages": "off",
