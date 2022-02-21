@@ -1,15 +1,23 @@
+const jsExtensions = [".js", ".jsx"];
+const tsExtensions = [".ts", ".tsx"];
+const allExtensions = jsExtensions.concat(tsExtensions);
+
 module.exports = {
   extends: ["next", "universe/web", "universe/native"],
   settings: {
     next: {
       rootDir: ["apps/*/", "packages/*/"],
     },
+    "import/extensions": allExtensions,
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"],
+      "@typescript-eslint/parser": tsExtensions,
     },
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
+      },
+      node: {
+        extensions: allExtensions,
       },
     },
   },
