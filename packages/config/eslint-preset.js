@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["next", "universe/web"],
+  extends: ["next", "universe/web", "universe/native"],
   settings: {
     next: {
       rootDir: ["apps/*/", "packages/*/"],
