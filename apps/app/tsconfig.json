@@ -1,6 +1,14 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "@root/*": [
+        "./src/*"
+      ],
+    },
+    "esModuleInterop": true
   }
 }
