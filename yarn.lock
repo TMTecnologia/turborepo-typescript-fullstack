@@ -4469,6 +4469,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:*":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
+  languageName: node
+  linkType: hard
+
 "@types/invariant@npm:^2.2.35":
   version: 2.2.35
   resolution: "@types/invariant@npm:2.2.35"
@@ -4619,6 +4629,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native@npm:^0.65":
+  version: 0.65.20
+  resolution: "@types/react-native@npm:0.65.20"
+  dependencies:
+    "@types/react": "*"
+  checksum: 30cdfd4a3d5a701c1df58063ab1f750bf0a6533318177a8e82d5097b459b7517a80d5dc3bd9bb5bc1958bf0a53f801f8b7c418e24cddc338e5b6b50ec1bfacf1
+  languageName: node
+  linkType: hard
+
 "@types/react-native@npm:~0.64.12":
   version: 0.64.23
   resolution: "@types/react-native@npm:0.64.23"
@@ -4697,6 +4716,28 @@ __metadata:
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
   checksum: 205fdbe3326b7046d7eaf5e494d8084f2659086a266f3f9cf00bccc549c8e36e407f88168ad4383c8b07099957ad669f75f2532ed4bc70be2b037330f7bae019
+  languageName: node
+  linkType: hard
+
+"@types/styled-components-react-native@npm:^5.1.3":
+  version: 5.1.3
+  resolution: "@types/styled-components-react-native@npm:5.1.3"
+  dependencies:
+    "@types/react": "*"
+    "@types/react-native": ^0.65
+    "@types/styled-components": "*"
+  checksum: 503e693c063de6b362f3e21d71c12566edf2b3606027b71cd0e976578cf3d6343aab1fdd2164417bbfca8d2976b938b159c7ed45b4fde3736c9b607bb7ebd91f
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:*":
+  version: 5.1.23
+  resolution: "@types/styled-components@npm:5.1.23"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: 78bc52c70df3964cb3826bdc7f2aa298b610971b63f1e015184f425236219b97d8efaf665603960388763686335e2d8b981e4ee3d87f0e3e3781bad35b0a646a
   languageName: node
   linkType: hard
 
@@ -5254,6 +5295,7 @@ __metadata:
     "@types/react": ~17.0.21
     "@types/react-native": ~0.64.12
     "@types/react-test-renderer": 17
+    "@types/styled-components-react-native": ^5.1.3
     axios: ^0.26.0
     babel-jest: ^27.5.1
     babel-loader: ^8.2.3
