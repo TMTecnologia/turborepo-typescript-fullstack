@@ -9,7 +9,11 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint . --ext=js,jsx,ts,tsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "test:ci": "yarn test --coverage",
+    "test:badges": "yarn test:ci  && jest-coverage-badges --input coverage/coverage-summary.json --output __badges__"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.8",
@@ -32,9 +36,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/jest-native": "^4.0.4",
+    "@testing-library/react-native": "^9.0.0",
+    "@types/jest": "^27.4.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "@types/react-test-renderer": "17",
+    "babel-jest": "^27.5.1",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^8.9.0",
+    "jest": "26.3.0",
+    "jest-coverage-badges": "^1.1.2",
+    "jest-expo": "^44.0.1",
+    "react-test-renderer": "17",
     "typescript": "~4.3.5"
   },
   "private": true,
