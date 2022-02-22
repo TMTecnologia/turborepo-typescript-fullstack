@@ -1,6 +1,6 @@
 import React from "react";
 
-import { RoundImage } from "@root/atomic/atoms";
+import { RoundImage } from "~/atomic/atoms";
 
 import { CardTitle, Container } from "./styles";
 

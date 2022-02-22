@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-import { Title } from "@root/atomic/atoms";
+import { Title } from "~/atomic/atoms";
 
 export const Container = styled.View.attrs({
   shadowColor: "#000",

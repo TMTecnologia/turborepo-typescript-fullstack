@@ -1,4 +1,4 @@
-import { api, handlerApiAsync } from "@root/services";
+import { api, handlerApiAsync } from "~/services";
 
 import { userBase } from "../utils";
 
@@ -13,12 +13,16 @@ export type User = {
 };
 
 export async function getUserListAsync() {
-  const response = await handlerApiAsync<User[]>({ execute: () => api.get(`${userBase()}`) });
+  const response = await handlerApiAsync<User[]>({
+    execute: () => api.get(`${userBase()}`),
+  });
   return response;
 }
 
 export async function getUserAsync({ id }: UserAsyncProps) {
-  const response = await handlerApiAsync<User>({ execute: () => api.get(`${userBase()}/${id}`) });
+  const response = await handlerApiAsync<User>({
+    execute: () => api.get(`${userBase()}/${id}`),
+  });
   return response;
 }
 

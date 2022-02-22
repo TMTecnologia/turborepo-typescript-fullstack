@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useCallback } from "react";
 import { Text } from "react-native";
 
-import { CardList } from "@root/atomic/organisms";
+import { CardList } from "~/atomic/organisms";
 
 import { useUsers } from "../../hooks";
 import { mockedAvatarUrl } from "../../utils";

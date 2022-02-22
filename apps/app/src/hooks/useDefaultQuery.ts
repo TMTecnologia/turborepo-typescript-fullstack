@@ -1,7 +1,7 @@
 import type { QueryKey, QueryFunction } from "react-query";
 import { useQuery } from "react-query";
 
-import { queryClient } from "@root/utils";
+import { queryClient } from "~/utils";
 
 type DataUpdateFunction<TInput, TOutput> = (input: TInput) => TOutput;
 type Updater<TInput, TOutput> = TOutput | DataUpdateFunction<TInput, TOutput>;
@@ -10,7 +10,10 @@ export function useDefaultQuery<TData>(
   cacheKey: QueryKey,
   queryFunction: QueryFunction<TData | undefined>
 ) {
-  const { data, ...rest } = useQuery<TData | undefined>(cacheKey, queryFunction);
+  const { data, ...rest } = useQuery<TData | undefined>(
+    cacheKey,
+    queryFunction
+  );
 
   function getCache() {
     return queryClient.getQueryData<TData | undefined>(cacheKey);

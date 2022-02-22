@@ -2,9 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
-import { icons } from "@root/assets";
-import { Card } from "@root/atomic/molecules";
-import type { HomeProps } from "@root/modules/Home";
+import { icons } from "~/assets";
+import { Card } from "~/atomic/molecules";
+import type { HomeProps } from "~/modules/Home";
 
 import { Container, Text } from "./styles";
 
