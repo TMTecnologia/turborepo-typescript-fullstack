@@ -5564,6 +5564,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.12.0
     "@typescript-eslint/parser": ^5.12.0
     eslint-config-universe: ^10.0.0
+    eslint-import-resolver-babel-module: ^5.3.1
     eslint-import-resolver-typescript: ^2.5.0
     eslint-plugin-import: ^2.25.4
     eslint-plugin-import-helpers: ^1.2.1
@@ -6542,6 +6543,19 @@ __metadata:
     prettier:
       optional: true
   checksum: db0a76ceb39a2d29781972210c433dd7a880a69987217595ea9b45608120c9746ec433e41427792b935cac3c000698659492eef7b963f2b8350ad9160b79786f
+  languageName: node
+  linkType: hard
+
+"eslint-import-resolver-babel-module@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "eslint-import-resolver-babel-module@npm:5.3.1"
+  dependencies:
+    pkg-up: ^3.1.0
+    resolve: ^1.20.0
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+    babel-plugin-module-resolver: ^3.0.0 || ^4.0.0
+  checksum: cd26740e9b9b7bb12667aabcc5c3e0e39a401b32b2890dfc4fd2444a00910f7e23fdb65cbb6084b026ade43899f824a2c762ce6078f5eb977762b8dda31aca1a
   languageName: node
   linkType: hard
 

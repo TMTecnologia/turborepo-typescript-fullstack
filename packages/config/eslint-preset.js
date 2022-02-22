@@ -6,13 +6,8 @@ module.exports = {
   extends: ["universe/web", "universe/native"],
   settings: {
     "import/extensions": allExtensions,
-    "import/parsers": {
-      "@typescript-eslint/parser": tsExtensions,
-    },
     "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true,
-      },
+      "babel-module": {},
       node: {
         extensions: allExtensions,
       },
