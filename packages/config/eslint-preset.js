@@ -3,11 +3,8 @@ const tsExtensions = [".ts", ".tsx"];
 const allExtensions = jsExtensions.concat(tsExtensions);
 
 module.exports = {
-  extends: ["next", "universe/web", "universe/native"],
+  extends: ["universe/web", "universe/native"],
   settings: {
-    next: {
-      rootDir: ["apps/*/", "packages/*/"],
-    },
     "import/extensions": allExtensions,
     "import/parsers": {
       "@typescript-eslint/parser": tsExtensions,
@@ -24,7 +21,6 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["import", "eslint-plugin-import-helpers"],
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
     "import/namespace": [
       "error",
       {
