@@ -36,6 +36,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
+    "@storybook/react-native": "^5.3.25",
     "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^9.0.0",
     "@types/jest": "^27.4.0",
