@@ -19,9 +19,12 @@ jobs:
         with:
           node-version: 14.x
           cache: yarn
+          cache-dependency-path: '**/yarn.lock'
 
       - name: 📦 Install dependencies
-        run: yarn workspaces focus app
+        run: |
+          yarn install --immutable
+          yarn workspaces focus app
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:

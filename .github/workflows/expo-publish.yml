@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 14.x
           cache: yarn
+          cache-dependency-path: '**/yarn.lock'
 
       - name: 🏗 Setup Expo
         uses: expo/expo-github-action@v7
@@ -27,7 +28,9 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: |
+          yarn install --immutable
+          yarn workspaces focus app
 
       - name: 🚀 Publish app
         run: yarn workspace app expo publish --non-interactive
