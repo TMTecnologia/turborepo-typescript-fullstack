@@ -1,0 +1,52 @@
+name: PR Expo preview
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'apps/app/package.json'
+      - 'apps/app/app.json'
+      - 'apps/app/**/*.js'
+      - 'apps/app/**/*.ts'
+
+jobs:
+  preview:
+    name: Create preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          cache: yarn
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: 🏗 Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: 5.x.x
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📦 Install dependencies
+        run: yarn install --immutable
+
+      - name: 🚀 Publish app & create a QR code
+        uses: expo/expo-preview-action@v1
+        with:
+          channel: pr-${{ github.event.number }}
+        id: preview
+
+      - name: 💡 Comment deployment link
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: >
+            Awesome! You can [preview the PR here](${{ steps.preview.outputs.EXPO_QR_CODE_URL }}).<br><br>
+            <a href="${{ steps.publish.outputs.EXPO_QR_CODE_URL }}"><img src="${{ steps.preview.outputs.EXPO_QR_CODE_URL }}" height="512px" width="512px"></a>
+            <br><br>
+            ${{ steps.publish.outputs.EXPO_NEW_BUILD_IS_REQUIRED_MESSAGE }}
