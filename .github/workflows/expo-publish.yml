@@ -1,6 +1,7 @@
 name: Expo Publish
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -29,8 +30,10 @@ jobs:
 
       - name: 📦 Install dependencies
         run: |
+          yarn prepublishOnly
           yarn install --immutable
-          yarn workspaces focus app
+          yarn workspaces focus apps/app
+          yarn postpublish
 
       - name: 🚀 Publish app
         run: yarn workspace app expo publish --non-interactive
