@@ -30,8 +30,8 @@ jobs:
 
       - name: 📦 Install dependencies
         run: |
-          yarn prepublishOnly
           yarn install --immutable
+          yarn prepublishOnly
           yarn workspaces focus apps/app
           yarn postpublish
 
