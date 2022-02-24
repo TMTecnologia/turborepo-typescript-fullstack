@@ -26,4 +26,9 @@ module.exports = {
     "!**/jest.setup.js",
     "!storybook/**",
   ],
+  coverageThreshold: {
+    global: {
+      lines: 50,
+    },
+  },
 };

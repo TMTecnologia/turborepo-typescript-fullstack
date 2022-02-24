@@ -24,8 +24,9 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
-      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - uses: artiomtr/jest-coverage-report-action@v2
         with:
-          skip-step: install
+          skip-step: all
           working-directory: apps/app
+          package-manager: yarn
           test-script: yarn workspace app test
