@@ -29,11 +29,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: |
-          yarn install --immutable
-          yarn prepublishOnly
-          yarn workspaces focus apps/app
-          yarn postpublish
+        run: yarn install --immutable
 
       - name: 🚀 Publish app
         run: yarn workspace app expo publish --non-interactive

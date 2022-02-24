@@ -22,9 +22,7 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
 
       - name: 📦 Install dependencies
-        run: |
-          yarn install --immutable
-          yarn workspaces focus app
+        run: yarn install --immutable
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
