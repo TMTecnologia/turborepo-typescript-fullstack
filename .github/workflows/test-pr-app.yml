@@ -26,7 +26,7 @@ jobs:
 
       - uses: artiomtr/jest-coverage-report-action@v2
         with:
-          skip-step: all
+          skip-step: install
           working-directory: apps/app
           package-manager: yarn
           test-script: yarn workspace app test
