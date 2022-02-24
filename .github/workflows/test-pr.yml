@@ -1,0 +1,30 @@
+name: PR Test Coverage
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - apps/app/**
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          cache: yarn
+
+      - name: 📦 Install dependencies
+        uses: yarn workspaces focus app
+
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          skip-step: install
+          working-directory: apps/app
+          test-script: yarn workspace app test
