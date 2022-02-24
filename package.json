@@ -9,6 +9,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "app": "yarn workspace app",
+    "docs": "yarn workspace docs",
+    "web": "yarn workspace web",
+    "ui": "yarn workspace ui",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "turbo run lint:fix",
