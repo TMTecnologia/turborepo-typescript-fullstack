@@ -38,6 +38,7 @@ jobs:
         uses: expo/expo-preview-action@v1
         with:
           channel: pr-${{ github.event.number }}
+          project-root: apps/app
         id: preview
 
       - name: 💡 Comment deployment link
