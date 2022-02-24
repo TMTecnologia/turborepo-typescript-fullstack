@@ -21,7 +21,7 @@ jobs:
           cache: yarn
 
       - name: 📦 Install dependencies
-        uses: yarn workspaces focus app
+        run: yarn workspaces focus app
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
