@@ -1,4 +1,4 @@
-name: Lint Commit Messages
+name: Lint Gitmoji Messages
 
 on: [pull_request]
 
@@ -21,6 +21,7 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
+      # https://github.com/arvinxx/gitmoji-commit-workflow/tree/master/packages/commitlint-plugin#fetch-error
       - name: 📦 fetch gitmoji JSON
         run: |
           curl https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json > node_modules/commitlint-plugin-gitmoji/lib/gitmojis.json
