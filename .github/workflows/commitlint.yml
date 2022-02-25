@@ -21,6 +21,10 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
+      - name: 📦 fetch gitmoji JSON
+        run: |
+          curl https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json > node_modules/commitlint-plugin-gitmoji/lib/gitmojis.json
+
       - uses: wagoid/commitlint-github-action@v4
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
