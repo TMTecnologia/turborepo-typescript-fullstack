@@ -28,6 +28,7 @@
     "commitlint": "^16.2.1",
     "commitlint-config-gitmoji": "^2.2.5",
     "cz-gitmoji": "^0.0.7",
+    "danger": "^11.0.2",
     "husky": ">=6",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
