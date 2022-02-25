@@ -40,4 +40,5 @@ jobs:
       - name: 💬 Comment preview
         uses: expo/expo-github-action/preview-comment@v7
         with:
+          project: apps/app
           channel: pr-${{ github.event.number }}
