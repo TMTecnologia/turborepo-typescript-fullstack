@@ -1,6 +1,10 @@
-import React from "react";
-import { Dimensions, FlatList, TouchableOpacity, View } from "react-native";
-import Animated, { SlideInLeft, SlideOutRight } from "react-native-reanimated";
+import React, { useEffect, useRef, useState } from "react";
+import { TouchableOpacity, useWindowDimensions } from "react-native";
+import Animated, {
+  Layout,
+  SlideInLeft,
+  SlideOutRight,
+} from "react-native-reanimated";
 
 import { Card, CardProps } from "../../molecules";
 
@@ -11,26 +15,49 @@ interface Props {
   callback: (id: number) => void;
 }
 
-const { width } = Dimensions.get("window");
+const defaultThrottleTimeMs = 16; // 60fps = 16ms
 
 export const CardList = ({ data, callback }: Props) => {
+  const { width, height } = useWindowDimensions();
+  const mounting = useRef(true);
+  const [viewHeight, setViewHeight] = useState(0);
+
+  useEffect(() => {
+    mounting.current = false;
+  }, []);
+
   return (
-    <FlatList
-      data={data}
-      keyExtractor={({ image, title }) => `${image}${title}`}
-      renderItem={({ item: { image, title, id }, index }) => (
+    <Animated.ScrollView
+      style={{ width, height }}
+      contentContainerStyle={{ paddingBottom: 50, paddingHorizontal: 20 }}
+      scrollEventThrottle={defaultThrottleTimeMs}
+      onScroll={(event) => {
+        const y = event.nativeEvent.contentOffset.y;
+        console.log({ event: event.nativeEvent.contentOffset });
+        // TODO: log on 80% scroll
+        if (viewHeight * 0.8 < y) {
+          console.log("fetch new page threshold");
+        }
+      }}
+      onLayout={(event) => {
+        setViewHeight(event.nativeEvent.layout.height);
+      }}
+    >
+      {data.map(({ id, image, title }) => (
         <Animated.View
           key={id}
-          entering={SlideInLeft.delay(100 * index)}
+          entering={
+            mounting.current ? SlideInLeft.delay(100 * id) : SlideInLeft
+          }
           exiting={SlideOutRight.delay(200)}
+          layout={Layout.delay(200)}
+          style={{ marginBottom: 20 }}
         >
           <TouchableOpacity onPress={() => callback(id)}>
             <Card image={image} title={title} />
           </TouchableOpacity>
         </Animated.View>
-      )}
-      ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
-      contentContainerStyle={{ width, paddingVertical: 50 }}
-    />
+      ))}
+    </Animated.ScrollView>
   );
 };

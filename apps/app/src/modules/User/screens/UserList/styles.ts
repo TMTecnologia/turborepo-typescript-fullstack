@@ -11,3 +11,16 @@ export const Container = styled.View`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.title};
 `;
+
+export const Pressable = styled.Pressable`
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
+  background: #ff0066;
+
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+`;
