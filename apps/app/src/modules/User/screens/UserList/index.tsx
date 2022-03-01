@@ -1,21 +1,28 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Text } from "react-native";
 
 import { CardList } from "~/atomic/organisms";
 
 import { useUsers } from "../../hooks";
 import { mockedAvatarUrl } from "../../utils";
-import { Container } from "./styles";
+import { Container, Pressable } from "./styles";
 
 export const UserList = () => {
   const { users, isLoading, setCache } = useUsers();
+  const [counter, setCounter] = useState(0);
 
-  // FIXME: removing user locks position on screen
-  // only way to delete all, is to delete bottom to top
   const removeUser = useCallback((targetId) => {
     setCache((old) => old?.filter(({ id }) => id !== targetId) ?? []);
   }, []);
+
+  const addUser = useCallback(() => {
+    setCache((old) => [
+      ...(old ?? []),
+      { email: "test@gmail.com", name: "Teste", id: 80000 + counter },
+    ]);
+    setCounter((old) => old + 1);
+  }, [counter]);
 
   if (isLoading) {
     return (
@@ -27,6 +34,7 @@ export const UserList = () => {
 
   return (
     <Container>
+      <Pressable onPress={addUser} />
       <CardList
         data={
           users?.map(({ name, id }) => ({
