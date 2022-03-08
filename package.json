@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "api": "yarn workspace api",
     "app": "yarn workspace app",
     "docs": "yarn workspace docs",
     "web": "yarn workspace web",
