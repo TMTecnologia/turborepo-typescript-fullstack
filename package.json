@@ -18,6 +18,7 @@
     "lint": "turbo run lint",
     "format": "turbo run lint:fix",
     "commit": "cz",
+    "lint:danger": "yarn danger local --dangerfile dangerfile.ts --base main",
     "changelog": "npx gitmoji-changelog",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
