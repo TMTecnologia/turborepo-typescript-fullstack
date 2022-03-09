@@ -1,14 +1,14 @@
-name: PR Expo preview
+name: Expo Preview
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - 'apps/app/package.json'
-      - 'apps/app/app.json'
-      - 'apps/app/**/*.js'
-      - 'apps/app/**/*.ts'
+      - apps/app/package.json
+      - apps/app/app.json
+      - apps/app/**/*.js
+      - apps/app/**/*.ts
 
 jobs:
   test:
