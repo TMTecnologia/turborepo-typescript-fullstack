@@ -22,6 +22,14 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+
+<p align="center">
+  <a><img src="./badges/badge-branches.svg" alt="Coverage branches" /></a>
+  <a><img src="./badges/badge-functions.svg" alt="Coverage functions" /></a>
+  <a><img src="./badges/badge-lines.svg" alt="Coverage lines" /></a>
+  <a><img src="./badges/badge-statements.svg" alt="Coverage statements" /></a>
+</p>
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
