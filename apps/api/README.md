@@ -26,6 +26,13 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+- Swagger for documentation
+- Prisma for ORM
+- PostgreSQL for DB
+- Jest for testing
+  - [] Add coverage badges
+  - [] Add deploy to heroku
+
 ## Installation
 
 ```bash
