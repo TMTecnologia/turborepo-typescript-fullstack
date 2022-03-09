@@ -4,13 +4,13 @@ import { IsOptional, IsString, IsCurrency } from "class-validator";
 
 export class CreateProductDto {
   @IsString()
-  @ApiProperty({ type: "string" })
+  @ApiProperty()
   name: string;
   @IsCurrency()
-  @ApiProperty({ type: "string", example: "10" })
+  @ApiProperty({ default: "10" })
   price: Prisma.Decimal | number | string;
   @IsString()
   @IsOptional()
-  @ApiProperty({ type: "string" })
+  @ApiProperty()
   description?: string;
 }
