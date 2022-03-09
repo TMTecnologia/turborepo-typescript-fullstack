@@ -1,27 +1,65 @@
 import { Injectable } from "@nestjs/common";
+import { Product, Prisma } from "@prisma/client";
 
-import { CreateProductDto } from "./dto/create-product.dto";
-import { UpdateProductDto } from "./dto/update-product.dto";
+import { PrismaService } from "~/prisma.service";
 
 @Injectable()
 export class ProductsService {
-  create(createProductDto: CreateProductDto) {
-    return "This action adds a new product";
+  constructor(private prisma: PrismaService) {}
+
+  async findUnique(
+    productWhereUniqueInput: Prisma.ProductWhereUniqueInput
+  ): Promise<Product | null> {
+    return this.prisma.product.findUnique({
+      where: productWhereUniqueInput,
+    });
   }
 
-  findAll() {
-    return `This action returns all products`;
+  async findMany(
+    params: {
+      skip?: number;
+      take?: number;
+      cursor?: Prisma.ProductWhereUniqueInput;
+      where?: Prisma.ProductWhereInput;
+      orderBy?: Prisma.ProductOrderByWithRelationInput;
+    } = {}
+  ): Promise<Product[]> {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.product.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      orderBy,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async create({
+    price,
+    ...rest
+  }: Prisma.ProductCreateInput): Promise<Product> {
+    return this.prisma.product.create({
+      data: {
+        price: new Prisma.Decimal(price),
+        ...rest,
+      },
+    });
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(params: {
+    where: Prisma.ProductWhereUniqueInput;
+    data: Prisma.ProductUpdateInput;
+  }): Promise<Product> {
+    const { where, data } = params;
+    return this.prisma.product.update({
+      data,
+      where,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+  async delete(where: Prisma.ProductWhereUniqueInput): Promise<Product> {
+    return this.prisma.product.delete({
+      where,
+    });
   }
 }

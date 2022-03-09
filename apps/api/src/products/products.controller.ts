@@ -11,7 +11,6 @@ import { ApiBody, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { Prisma } from "@prisma/client";
 
 import { CreateProductDto } from "./dto/create-product.dto";
-import { UpdateProductDto } from "./dto/update-product.dto";
 import { ProductsService } from "./products.service";
 
 @ApiTags("products")
@@ -24,8 +23,8 @@ export class ProductsController {
     description: "Store product structure",
   })
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  create(@Body() productData: Prisma.ProductCreateInput) {
+    return this.productsService.create(productData);
   }
 
   @ApiOperation({
@@ -35,21 +34,27 @@ export class ProductsController {
   })
   @Get()
   findAll() {
-    return this.productsService.findAll();
+    return this.productsService.findMany();
   }
 
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.productsService.findOne(+id);
+    return this.productsService.findUnique({ id });
   }
 
   @Patch(":id")
-  update(@Param("id") id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
+  update(
+    @Param("id") id: string,
+    @Body() ProductUpdateInput: Prisma.ProductUpdateInput
+  ) {
+    return this.productsService.update({
+      where: { id },
+      data: ProductUpdateInput,
+    });
   }
 
   @Delete(":id")
   remove(@Param("id") id: string) {
-    return this.productsService.remove(+id);
+    return this.productsService.delete({ id });
   }
 }
