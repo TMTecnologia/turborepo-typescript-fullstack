@@ -1,4 +1,4 @@
-name: PR Test Coverage
+name: (APP) PR Test Coverage
 
 on:
   pull_request:
