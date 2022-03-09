@@ -1,14 +1,16 @@
-name: (API) PR Test Coverage
+name: Heroku Preview
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - apps/api/**
+      - apps/api/package.json
+      - apps/api/**/*.ts
+      - apps/api/prisma/schema.prisma
 
 jobs:
-  coverage:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Setup repo
@@ -24,8 +26,9 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install --immutable
 
-      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - uses: artiomtr/jest-coverage-report-action@v2
         with:
           skip-step: install
           working-directory: apps/api
+          package-manager: yarn
           test-script: yarn workspace api test
