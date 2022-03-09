@@ -7,20 +7,32 @@ import {
   Param,
   Delete,
 } from "@nestjs/common";
+import { ApiBody, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { Prisma } from "@prisma/client";
 
 import { CreateProductDto } from "./dto/create-product.dto";
 import { UpdateProductDto } from "./dto/update-product.dto";
 import { ProductsService } from "./products.service";
 
+@ApiTags("products")
 @Controller("products")
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
+  @ApiBody({
+    type: CreateProductDto,
+    description: "Store product structure",
+  })
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
 
+  @ApiOperation({
+    summary: "Gets all products from every category",
+    description:
+      "If you want to get all the products from your inventory and from each category, use this route. It takes no path or query params",
+  })
   @Get()
   findAll() {
     return this.productsService.findAll();
