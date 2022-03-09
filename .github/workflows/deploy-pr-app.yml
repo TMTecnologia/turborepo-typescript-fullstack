@@ -33,7 +33,7 @@ jobs:
           working-directory: apps/app
           package-manager: yarn
           test-script: yarn workspace app test
-          threshold: 20
+          threshold: 20 # NOTE: remove this after test update
 
   preview:
     name: Create preview
