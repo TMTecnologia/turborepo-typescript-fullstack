@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "yarn generate && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -21,6 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "test:ci": "yarn test:cov",
     "test:badges": "yarn test:ci  && jest-coverage-badges --input coverage/coverage-summary.json --output badges",
+    "generate": "yarn generate:prisma",
     "generate:prisma": "prisma generate"
   },
   "dependencies": {
