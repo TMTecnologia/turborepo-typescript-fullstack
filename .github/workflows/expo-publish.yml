@@ -11,6 +11,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: 
+      name: production-app
+      url: https://expo.dev/@thlmenezes/app
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
