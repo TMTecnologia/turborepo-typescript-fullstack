@@ -38,8 +38,9 @@ jobs:
   preview:
     name: Create preview
     needs: test
-    # TODO: add environments
-    # environment: preview
+    environment:
+      name: preview-app
+      url: https://expo.io/@thlmenezes/app?release-channel=pr-${{ github.event.number }}
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Setup repo
