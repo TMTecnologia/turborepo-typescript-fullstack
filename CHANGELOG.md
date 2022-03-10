@@ -1,7 +1,7 @@
 # Changelog
 
 <a name="0.2.0"></a>
-## 0.2.0 (2022-02-22)
+## 0.2.0 (2022-02-22) 
 
 This version brings:
 - Bump yarn version to 3.x.x (Heroku deploy ready)
