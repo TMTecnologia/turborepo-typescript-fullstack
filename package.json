@@ -20,6 +20,7 @@
     "commit": "cz",
     "lint:danger": "yarn danger local --dangerfile dangerfile.ts --base main",
     "changelog": "npx gitmoji-changelog",
+    "heroku-postbuild": "chmod +x scripts/heroku.build && ./scripts/heroku.build",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
