@@ -1,5 +1,7 @@
 # Turborepo starter
 
+EOL: this template will not be updated further, check [TMTecnologia/turborepo-tmtecnologia](https://github.com/TMTecnologia/turborepo-tmtecnologia) for the new and upgraded version.
+
 This is an official Yarn v2 starter turborepo.
 
 - [Changelog](./CHANGELOG.md#changelog)
